@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>XMR Wallet</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.net/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <style>
+    .error-message {
+      color: red;
+      margin-top: 10px;
+      font-size: 1rem;
+      font-weight: bold;
+      display: none;
+    }
+
+    .notification {
+      display: none;
+      margin-top: 20px;
+      color: green;
+      font-size: 1rem;
+    }
+
+    .price-info {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="/">  
+        <div class="logo">
+          <img src="/assets/logo.jpeg" alt="Cam Logo" width="50"> <span class="tools text-white fs-6">Tools</span>
+        </div>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+          <li class="nav-item"><a class="nav-link" href="#requirements">System Requirements</a></li>
+          <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Wallet Info -->
+  <section class="py-5 text-center" id="walletSection">
+    <div class="container">
+      <h2 class="mb-4">XMR Payment Address</h2>
+      <p>Please select your preferred Monero network:</p>
+
+      <!-- Network Selector -->
+      <select id="networkSelect" class="form-select mb-4" onchange="updateWalletInfo()">
+        <option value="">Select Network</option>
+        <option value="XMR">XMR (Monero)</option>
+      </select>
+
+      <!-- Wallet Address & QR -->
+      <div class="wallet-address">
+        <input type="text" id="walletAddress" class="form-control mb-3" readonly>
+        <button class="btn btn-primary" onclick="copyToClipboard('walletAddress')">Tap to Copy</button>
+      </div>
+
+      <div class="barcode m-auto mt-4">
+        <h4>Scan the QR Code</h4>
+        <img id="qrCode" src="" alt="QR Code" class="img-fluid" width="200" style="display: none; margin: auto; text-align: center;">
+      </div>
+
+      <!-- Price Info -->
+      <div class="price-info">
+        <h4>Price Information</h4>
+        <p>Price in USD: $400</p>
+        <p>Price Equivalent in Monero (XMR): <span id="priceXMR">0.0</span> XMR</p>
+      </div>
+
+      <!-- Payment Proof URL Input -->
+      <div class="upload-section mt-5">
+        <h4>Upload Your Payment Proof</h4>
+        <p>Please upload your proof of payment to an image hosting platform like <a href="https://imgur.com" target="_blank">Imgur</a></p>
+        <textarea id="paymentProofUrl" class="form-control" rows="3" placeholder="Paste the image URL here..." required></textarea>
+        <div id="errorMessage" class="error-message">Please provide a valid Imgur gallery URL (e.g., https://imgur.com/a/9fldxcr).</div>
+      </div>
+
+      <!-- Checkbox to confirm payment proof -->
+      <div class="mt-3">
+        <label>
+          <input type="checkbox" id="paymentProofCheckbox">
+          I have uploaded the payment proof.
+        </label>
+      </div>
+
+      <!-- Button to notify payment made -->
+      <button id="paymentButton" class="btn btn-warning mt-4" disabled>I Have Made Payment</button>
+      <div id="paymentNotification" class="notification">Thank you for your payment. We will verify it soon.</div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer text-center py-3 bg-dark text-white">
+    <p>© 2025 Deep Live Cam AI Software. All rights reserved.</p>
+    <div class="mt-3">
+      <p>For support, contact us on Telegram:</p>
+      <a href="https://t.me/validhacktimothy" target="_blank" class="btn btn-info">
+        <i class="fab fa-telegram"></i> @validhacktimothy
+      </a>
+    </div>
+  </footer>
+
+  <script>
+    // Function to copy wallet address to clipboard
+    function copyToClipboard(id) {
+      const copyText = document.getElementById(id);
+      copyText.select();
+      copyText.setSelectionRange(0, 99999); // For mobile devices
+      document.execCommand("copy");
+      alert("Wallet Address Copied: " + copyText.value);
+    }
+
+    // Update wallet information based on selected network
+    function updateWalletInfo() {
+      const network = document.getElementById("networkSelect").value;
+      const walletAddress = document.getElementById("walletAddress");
+      const qrCode = document.getElementById("qrCode");
+      const walletSection = document.getElementById("walletSection");
+
+      if (network) {
+        let address = "";
+        let qrImage = "";
+
+        if (network === "XMR") {
+          address = "83QFfhjoagtZY35bC5G3sDBeHo7J7LkNnGTDp8HyjXcqX6JK2e7eC39Cxb91nUduVgDvpvUmj2sgFPgQppyraoiyDRCDY6E";  // Replace with your Monero wallet address
+          qrImage = "/wallets/images/xmr.jpg";  // Replace with your Monero QR code image
+        }
+
+        walletAddress.value = address;
+        qrCode.src = qrImage;
+        qrCode.style.display = "block";
+        walletSection.classList.add("show");
+
+        // Fetch the Monero price and update price equivalent in XMR
+        updatePrice();
+      } else {
+        walletSection.classList.remove("show");
+        qrCode.style.display = "none";
+      }
+    }
+
+    // Fetch current Monero (XMR) price in USD using CoinGecko API
+    function updatePrice() {
+      fetch('https://api.coingecko.com/api/v3/simple/price?ids=monero&vs_currencies=usd')
+        .then(response => response.json())
+        .then(data => {
+          const xmrPriceInUSD = data.monero.usd;
+          if (!xmrPriceInUSD) {
+            alert('Failed to fetch Monero price.');
+            return;
+          }
+          const priceInUSD = 400; // Fixed price in USD
+          const priceInXMR = (priceInUSD / xmrPriceInUSD).toFixed(6); // Convert USD to XMR
+          document.getElementById('priceXMR').innerText = priceInXMR; // Update price in XMR
+        })
+        .catch(error => {
+          console.error('Error fetching XMR price:', error);
+          alert('Failed to fetch Monero price. Please try again later.');
+        });
+    }
+
+    // Validate image gallery URL (e.g., Imgur link like https://imgur.com/a/9fldxcr)
+    function isValidImageUrl(url) {
+      const regex = /^(https?:\/\/(?:imgur\.com\/a\/[a-zA-Z0-9]+))$/;
+      return regex.test(url);
+    }
+
+    // Enable payment button when checkbox is checked
+    document.getElementById('paymentProofCheckbox').addEventListener('change', function() {
+      const paymentButton = document.getElementById('paymentButton');
+      paymentButton.disabled = !this.checked;  // Enable button only if checked
+    });
+
+    // Button to notify payment has been made
+    document.getElementById('paymentButton').addEventListener('click', function() {
+      const paymentProofUrl = document.getElementById('paymentProofUrl').value;
+      if (!paymentProofUrl || !isValidImageUrl(paymentProofUrl)) {
+        document.getElementById('errorMessage').style.display = 'block';
+        return;
+      }
+
+      document.getElementById('errorMessage').style.display = 'none';
+
+      // Show the confirmation message
+      document.getElementById('paymentNotification').style.display = 'block';
+    });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

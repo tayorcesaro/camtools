@@ -8,8 +8,6 @@
 /* Global Styles */
 body {
   font-family: 'Arial', sans-serif;
-  background: #121212;
-  color: #fff;
   line-height: 1.6;
 }
 
@@ -20,24 +18,52 @@ body {
   right: 0px
   }
 
+  .tools{
+    position: relative;
+    right:12px;
+    font-weight: 600;
+  }
+
 /* Navbar */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background: #1e1e1e;
+  background-color: rgb(9, 9, 9);
+  
+}
+
+.nav-item > a{
+color: white;
+
+}
+
+.nav-link{
+  color:white;
 }
 
 .nav-links {
   list-style: none;
   display: flex;
   gap: 1.5rem;
+  color:white;
 }
 
 .nav-links a {
   color: #fff;
   text-decoration: none;
+}
+
+.barcode > img{
+  margin: auto;
+  text-align: center;
+}
+
+.featuresbox{
+  box-sizing: border-box;
+  box-shadow: inset;
+  border: 12px thin black;
 }
 
 .btn {
@@ -63,13 +89,18 @@ body {
 }
 
 /* Hero Section */
-.hero {
-  height: 90vh;
-  background: url('assets/background.jpg') no-repeat center center/cover;
+.heroo {
+  height: 70vh;
+  background: url(./assets/bgv.gif);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
+  color: black;
+  
 }
 
 .hero-content {
@@ -77,6 +108,8 @@ body {
 }
 
 .hero-content h1 {
+  color: black;
+  
   font-size: 2.5rem;
   margin-bottom: 1rem;
 }
@@ -89,7 +122,7 @@ body {
 /* Features Section */
 .features {
   padding: 2rem;
-  background: #1e1e1e;
+  background: #ffffff;
 }
 
 .features h2 {
@@ -114,9 +147,12 @@ body {
 }
 
 .pricing-card {
-  background: #292929;
+  background: url(/assets/bg.jpeg);
+  background-size:cover;
   padding: 2rem;
+  background-repeat:no-repeat;
   border-radius: 10px;
+  color:white;
 }
 
 .pricing-card ul {
@@ -141,6 +177,16 @@ body {
   flex-direction: column;
 }
 
+form > label > input{
+  border: rgb(0, 0, 44) 7px solid;
+  border-radius: 15px;
+}
+
+form >label > ::placeholder{
+  text-align: center;
+  font-size: small;
+  font-weight: 300;
+}
 .contact label {
   margin: 1rem 0 0.5rem;
 }
@@ -159,7 +205,106 @@ body {
 
 /* Footer */
 .footer {
+  margin-top: 150px;
+  padding-top: 120px;
   text-align: center;
   padding: 1rem;
   background: #121212;
+}
+
+/* Dark and Scary Theme */
+body {
+  background: url('https://source.unsplash.com/1920x1080/?dark,scary') no-repeat center center fixed;
+  background-size: cover;
+  color: #fff;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.hero h1 {
+  font-size: 3rem;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  animation: fadeIn 3s ease-in-out;
+}
+
+/* Table of Contents */
+.table-of-contents {
+  background: rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  border-left: 5px solid red;
+  margin-top: 30px;
+}
+
+.table-of-contents ul {
+  list-style: none;
+  padding: 0;
+}
+
+.table-of-contents li {
+  padding: 10px;
+  font-size: 1.2rem;
+}
+
+.table-of-contents a {
+  text-decoration: none;
+  color: #ff4444;
+  transition: color 0.3s ease-in-out;
+}
+
+.table-of-contents a:hover {
+  color: #ffffff;
+}
+
+/* Content Sections */
+.content {
+  padding: 50px;
+  background: rgba(0, 0, 0, 0.6);
+  margin: 20px;
+  border-left: 4px solid crimson;
+  transition: all 0.5s ease-in-out;
+}
+
+.content:hover {
+  transform: scale(1.02);
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 20px;
+  background: black;
+  color: red;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

@@ -3,108 +3,217 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI Video Calling Software</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <title>Cam</title>
+  <link rel="stylesheet" href="/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.net/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 <body>
 
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">  <div class="logo">
-        <img  src="/assets/logo.jpeg" alt="AI Video Logo">
-      </div></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="#">  
+        <div class="logo">
+          <img src="/assets/logo.jpeg" alt="Cam Logo" width="50"> <span class="tools text-white fs-6">Tools</span>
+        </div>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Features</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Pricing</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Dropdown link
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <a href="#buy-now" class="w-25 h-25 btn primary-btn">Buy Now</a>
-            </ul>
-          </li>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link " href="/">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+          <li class="nav-item"><a class="nav-link" href="/guide.html"> Installation Guide</a></li>
+          <li class="nav-item"><a class="nav-link" href="#requirements">System Requirements</a></li>
+          <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
         </ul>
       </div>
     </div>
   </nav>
+
+  <!-- Hero Section -->
+  <section class="heroo d-flex align-items-center text-center text-white">
+    <div class="container">
+      <h1>Real-time Face Swapping AI Software.</h1>
+      <p>Experience the future of AI-powered Real-time Face Swapping Software. video technology with unmatched performance.</p>
+      <a href="#pricing" class="btn mb-4 mt-4 btn-danger">Purchase Now</a> <br>
+      <a href="https://t.me/validhacktimothy" target="_blank" class="btn btn-info">
+        <i class="fab fa-telegram"></i> @validhacktimothy
+      </a>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="features py-5 text-center">
+    <div class="container">
+      <h1 class="mb-4">Key Features</h1>
+      <div class="row">
+        <div class="col-md-6 featuresbox col-lg-4">
+          <h3><i class="fas fa-download"></i> <br> Effortless Setup</h3>
+          <p>No complicated installations. <br>Just download, unzip, and run.</p>
+        </div>
+        <div class="col-md-6 featuresbox col-lg-4">
+          <h3><i class="fas fa-tachometer-alt"></i> <br> Optimized for Performance</h3>
+          <p>Real-time deep live cam performance on NVIDIA GPUs (10-20 FPS).</p>
+        </div>
+        <div class="col-md-6 featuresbox col-lg-4">
+          <h3><i class="fas fa-users-cog"></i> <br> User-Friendly Interface</h3>
+          <p>Designed for everyone—no technical expertise needed.</p>
+        </div>
+        <div class="col-md-6 featuresbox col-lg-4">
+          <h3><i class="fas fa-robot"></i> <br> AI-Powered Live Cam</h3>
+          <p>Ultra-realistic, high-definition video with deep learning.</p>
+        </div>
+        <div class="col-md-6 featuresbox col-lg-4">
+          <h3><i class="fas fa-wifi"></i> <br> Low Latency Streaming</h3>
+          <p>AI-optimized streaming ensures minimal lag.</p>
+        </div>
+        <div class="col-md-6 featuresbox col-lg-4">
+          <h3><i class="fas fa-microchip"></i> <br> Coming Soon</h3> <br>
+          <p>CPU-only version for users without NVIDIA GPUs.</p>
+        </div>
+      </div>
+    </div>
+  </section>
   
 
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Revolutionary AI Video Calling Software</h1>
-      <p>Experience seamless video calls with AI-powered enhancements and crystal-clear quality.</p>
-      <a href="#buy-now" class="btn secondary-btn">Get Started</a>
-    </div>
-  </section>
-
-  <section id="features" class="features">
-    <h2>Features</h2>
-    <div class="features-list">
-      <div class="feature">
-        <h3>AI-Powered Clarity</h3>
-        <p>Enjoy noise reduction and high-quality resolution powered by AI.</p>
-      </div>
-      <div class="feature">
-        <h3>Smart Background Blur</h3>
-        <p>Stay focused with automatic background blurring during calls.</p>
-      </div>
-      <div class="feature">
-        <h3>Cross-Platform Support</h3>
-        <p>Available on Windows, macOS, and mobile devices.</p>
-      </div>
-    </div>
-  </section>
-
-  <section  id="pricing" class="pricing">
-    <h2>Pricing</h2>
-    <div id="buy-now"  class="pricing-card">
-      <h3>Lifetime license </h3>
-      <p>$700</p>
-      <ul>
-        <li>Unlimited Video Calls</li>
-        <li>AI Features Included</li>
-        <li>24/7 Support</li>
+  <!-- Apps Roop Camm Works With Section -->
+  <section id="apps" class="apps py-5 text-center">
+    <div class="container">
+      <h2 class="mb-4">Our Ai Powered tool Works With</h2>
+      <ul class="list-unstyled">
+        <li><i class="fab fa-zoom"></i> Zoom</li>
+        <li><i class="fab fa-skype"></i> Skype</li>
+        <li><i class="fab fa-discord"></i> Discord</li>
+        <li><i class="fas fa-video"></i> Microsoft Teams</li>
+        <li><i class="fas fa-chalkboard-teacher"></i> Google Meet</li>
+        <li><i class="fas fa-broadcast-tower"></i> OBS Studio</li>
+        <li><i class="fas fa-stream"></i> Streamlabs</li>
+        <li><i class="fab fa-instagram"></i> Instagram</li>
+        <li><i class="fab fa-facebook-messenger"></i> Messenger</li>
       </ul>
-      <a href="#buy-now"  class="btn primary-btn">Buy Now</a>
+      
     </div>
   </section>
 
-  <section id="contact" class="contact">
-    <h2>Contact Us</h2>
-    <form action="#" method="post">
-      <label for="name">Name</label>
-      <input type="text" id="name" name="name" placeholder="Your Name" required>
-
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" placeholder="Your Email" required>
-
-      <label for="message">Message</label>
-      <textarea id="message" name="message" placeholder="Your Message" required></textarea>
-
-      <button type="submit" class="btn secondary-btn">Send</button>
-    </form>
+  <!-- System Requirements Section -->
+  <section id="requirements" class="requirements bg-light py-5 text-center">
+    <div class="container">
+      <h2 class="mb-4">System Requirements</h2>
+      <ul class="list-unstyled">
+        <li><strong>NVIDIA GPU:</strong> 6GB VRAM or higher (RTX 3060, 4060, or 5060 recommended).</li>
+        <li><strong>CUDA Toolkit 11.8:</strong> Install this first for optimal performance.</li>
+        <li><strong>Operating System:</strong> Windows 10 or 11.</li>
+        <li><strong>RAM:</strong> 16GB (Recommended).</li>
+      </ul>
+    </div>
   </section>
 
-  <footer class="footer">
-    <p>© 2025 AI Video Calling Software. All rights reserved.</p>
+  <!-- Software Required Section -->
+  <section id="software" class="software py-5 text-center bg-light">
+    <div class="container">
+      <h2 class="mb-4">Required Apps & Software</h2>
+      <ul class="list-unstyled">
+        <li><strong> Real-time Face Swapping AI Software:</strong> <a style="color: black; text-decoration: none; font-family: 'Courier New', Courier, monospace; font-weight: 800;" href="/payment.html">Download</a></li>
+        <!-- <li><strong>Avatarify:</strong> Download from GitHub</li> -->
+        <li><strong>CUDA Toolkit:</strong> Version 11.8 or higher (for NVIDIA GPU)</li>
+        <li><strong>Python:</strong> Python 3.7+ (For Avatarify)</li>
+        <li><strong>FFmpeg:</strong> Required for video processing</li>
+        <li><strong>OBS Studio:</strong> This is use to route the video and connect to your virtual camera</li>
+        <li><strong>OBS (Virtual cam plugin):</strong> This is a virtual camera plugin thaat works with obs</li>
+      </ul>
+      <div class="platforms-icons">
+        <i class="fab fa-windows fa-3x"></i>
+        <!-- <i class="fab fa-apple fa-3x"></i> -->
+        <!-- <i class="fab fa-linux fa-3x"></i> -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section id="pricing" class="pricing py-5 text-center">
+    <div class="container">
+      <h2 class="mb-4">Pricing</h2>
+      <div class="pricing-card bg-dark text-white p-4 rounded">
+        <h3>Lifetime License</h3>
+        <p class="fs-4">$400</p>
+        <ul class="list-unstyled">
+          <li>✅ Unlimited AI-powered video calls</li>
+          <li>✅ AI Features & Optimizations</li>
+          <li>✅ 24/7 Support</li>
+        </ul>
+        <a id="pay-now" class="btn btn-danger" href="/payment.html" target="_blank">Buy Now with Crypto</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact bg-light py-5">
+    <div class="container text-center">
+      <h2>Contact Us</h2>
+      <form class="mx-auto" style="max-width: 500px;">
+        <label for="name">Name</label>
+        <input type="text" id="name" class="form-control mb-3" placeholder="Your Name" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" class="form-control mb-3" placeholder="Your Email" required>
+
+        <label for="message">Message</label>
+        <textarea id="message" class="form-control mb-3" placeholder="Your Message" required></textarea>
+
+        <button type="submit" class="btn btn-dark w-100">Send</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer text-center py-3 bg-dark text-white">
+    <p>© 2025 Real-time Face Swapping AI Software. <br> All rights reserved.</p>
   </footer>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
-  <script src="script.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      document.querySelector("form").addEventListener("submit", function (event) {
+        event.preventDefault(); // Prevent default form submission
+  
+        // Get form data
+        let name = document.getElementById("name").value;
+        let email = document.getElementById("email").value;
+        let message = document.getElementById("message").value;
+  
+        // Validate fields
+        if (!name || !email || !message) {
+          alert("Please fill in all fields.");
+          return;
+        }
+  
+        // Telegram bot details
+        let botToken = "7692619452:AAG4QVj5QkYW7xJgs5DgKpUGZZhGDr50vm0";
+        let chatId = "8073393660";
+        let text = `📩 *New Contact Form Submission*\n\n👤 *Name:* ${name}\n📧 *Email:* ${email}\n💬 *Message:* ${message}`;
+  
+        // Send data to Telegram
+        let url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(text)}&parse_mode=Markdown`;
+  
+        fetch(url)
+          .then(response => response.json())
+          .then(data => {
+            if (data.ok) {
+              alert("Message sent successfully!");
+              document.querySelector("form").reset();
+            } else {
+              alert("Failed to send message. Try again.");
+            }
+          })
+          .catch(error => alert("Error sending message: " + error));
+      });
+    });
+  </script>
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://kit.fontawesome.com/3a3afcb5ea.js" crossorigin="anonymous"></script>
 </body>
 </html>
